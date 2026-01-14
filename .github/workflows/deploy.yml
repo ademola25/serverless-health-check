@@ -94,7 +94,7 @@ jobs:
           curl -f ${{ steps.endpoint.outputs.api_endpoint }} || exit 1
 
       - name: Upload Lambda artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: lambda-package-staging
           path: lambda_function.zip
@@ -176,7 +176,7 @@ jobs:
           curl -f ${{ steps.endpoint.outputs.api_endpoint }} || exit 1
 
       - name: Upload Lambda artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: lambda-package-prod
           path: lambda_function.zip
