@@ -13,7 +13,35 @@ __pycache__/
 *.so
 .Python
 venv/
+env/
+ENV/
 *.egg-info/
+.pytest_cache/
+
+# Lambda dependencies
+lambda/health_check/boto3/
+lambda/health_check/botocore/
+lambda/health_check/s3transfer/
+lambda/health_check/jmespath/
+lambda/health_check/urllib3/
+lambda/health_check/pytest/
+lambda/health_check/_pytest/
+lambda/health_check/pluggy/
+lambda/health_check/iniconfig/
+lambda/health_check/packaging/
+lambda/health_check/dateutil/
+lambda/health_check/six.py
+lambda/health_check/*.dist-info/
+lambda/health_check/certifi/
+lambda/health_check/charset_normalizer/
+lambda/health_check/idna/
+lambda/health_check/requests/
+lambda/health_check/bin/
+lambda/health_check/exceptiongroup/
+lambda/health_check/tomli/
+lambda/health_check/pygments/
+lambda/health_check/python_dateutil*.dist-info/
+lambda/health_check/py.py
 
 # IDE
 .vscode/
