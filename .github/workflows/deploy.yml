@@ -26,7 +26,10 @@ jobs:
   deploy-staging:
     name: Deploy to Staging
     runs-on: ubuntu-latest
-    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    # Updated condition: Run on push to main OR manual trigger with staging
+    if: |
+      (github.event_name == 'push' && github.ref == 'refs/heads/main') ||
+      (github.event_name == 'workflow_dispatch' && github.event.inputs.environment == 'staging')
     environment: staging
     
     steps:
@@ -103,7 +106,7 @@ jobs:
   approval-prod:
     name: Approval Gate for Production
     runs-on: ubuntu-latest
-    if: github.event.inputs.environment == 'prod' || (github.event_name == 'workflow_dispatch' && github.event.inputs.environment == 'prod')
+    if: github.event_name == 'workflow_dispatch' && github.event.inputs.environment == 'prod'
     environment: 
       name: prod-approval
       url: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
@@ -118,7 +121,7 @@ jobs:
     name: Deploy to Production
     runs-on: ubuntu-latest
     needs: approval-prod
-    if: github.event.inputs.environment == 'prod' || (github.event_name == 'workflow_dispatch' && github.event.inputs.environment == 'prod')
+    if: github.event_name == 'workflow_dispatch' && github.event.inputs.environment == 'prod'
     environment: prod
     
     steps:
