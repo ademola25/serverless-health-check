@@ -1,8 +1,8 @@
 # DynamoDB Table
 resource "aws_dynamodb_table" "requests" {
-  name           = "${var.environment}-requests-db"
-  billing_mode   = "PAY_PER_REQUEST"
-  hash_key       = "id"
+  name         = "${var.environment}-requests-db"
+  billing_mode = "PAY_PER_REQUEST"
+  hash_key     = "id"
 
   attribute {
     name = "id"
@@ -82,11 +82,11 @@ resource "aws_iam_role_policy" "lambda_dynamodb" {
 resource "aws_lambda_function" "health_check" {
   filename         = "${path.module}/../../../lambda_function.zip"
   function_name    = "${var.environment}-health-check-function"
-  role            = aws_iam_role.lambda_role.arn
-  handler         = "index.lambda_handler"
+  role             = aws_iam_role.lambda_role.arn
+  handler          = "index.lambda_handler"
   source_code_hash = filebase64sha256("${path.module}/../../../lambda_function.zip")
-  runtime         = var.lambda_runtime
-  timeout         = 10
+  runtime          = var.lambda_runtime
+  timeout          = 10
 
   environment {
     variables = {
