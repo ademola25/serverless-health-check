@@ -229,3 +229,27 @@ terraform destroy -var-file="environments/staging.tfvars"
 terraform init -backend-config="key=serverless-health-check/prod/terraform.tfstate"
 terraform destroy -var-file="environments/prod.tfvars"
 ```
+
+## Live Deployment Verification
+
+The following screenshots demonstrate the actual AWS resources deployed in my account:
+
+### Lambda Functions
+Both staging and production Lambda functions are deployed and active:
+![Lambda Functions](<Screenshot 2026-01-15 at 04.51.39.png>)
+
+### API Gateway
+HTTP APIs configured for both environments with `/health` routes:
+![API Gateway](<Screenshot 2026-01-15 at 04.52.16.png>)
+
+### DynamoDB Tables
+Request storage tables for both environments, plus the Terraform state lock table:
+![DynamoDB Tables](<Screenshot 2026-01-15 at 04.52.30.png>)
+
+### CloudWatch Logs
+Log groups automatically created for Lambda function monitoring:
+![CloudWatch Logs](<Screenshot 2026-01-15 at 04.51.49.png>)
+
+### S3 Terraform State
+Encrypted S3 bucket storing Terraform state with versioning enabled:
+![S3 Bucket](<Screenshot 2026-01-15 at 04.52.02.png>)
