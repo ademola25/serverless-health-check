@@ -2,6 +2,15 @@
 
 A serverless health check API deployed to AWS using Terraform and GitHub Actions.
 
+## Development Notes
+
+This project demonstrates both individual rapid development (direct commits to main) and team collaboration workflows (pull requests for later features). 
+
+The initial infrastructure was built with direct commits to enable fast iteration and immediate CI/CD testing. Pull requests are used for subsequent enhancements to demonstrate collaborative development practices.
+
+In production team environments, I use feature branches with pull requests and code reviews before merging to main.
+
+
 ## Prerequisites
 
 ### Required Tools
