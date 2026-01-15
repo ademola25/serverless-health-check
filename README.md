@@ -96,6 +96,10 @@ The pipeline automatically deploys to staging. Monitor progress in the GitHub Ac
 
 ## Testing the Deployed Endpoint
 
+### Note on Live Demo Endpoints
+
+For reviewer convenience, the example API endpoints below are **live deployments** in my AWS account. These allow immediate testing without deployment setup. The resources are isolated to this project, contain no sensitive data, and will be cleaned up after the interview process.
+
 ### Quick Test (Using Demo Endpoints)
 
 You can test the API immediately using these live endpoints:
